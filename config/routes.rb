@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   post 'signup', to: 'accounts#create'
   post 'login', to: 'logins#login'
 
-  resources :courses, only: [:index]
+  resources :courses, only: [:index] do 
+    get 'course_title/:courses_id', to: 'courses#course_title', on: :collection, as: 'course_title'
+  end
 end

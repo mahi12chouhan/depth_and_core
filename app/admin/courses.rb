@@ -1,5 +1,5 @@
 ActiveAdmin.register Courses do controller do
-    before_action :authenticate_admin_user! # Ensure this is defined in your AdminUser model
+    before_action :authenticate_admin_user!  
   end
  permit_params :name
  index do
@@ -16,8 +16,6 @@ ActiveAdmin.register Courses do controller do
     end
     f.actions
   end
-
-   
 
   filter :name
   filter :created_at
