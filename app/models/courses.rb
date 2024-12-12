@@ -1,6 +1,5 @@
 class Courses< ApplicationRecord
-	def self.ransackable_attributes(auth_object = nil)
-    ["id", "name", "created_at", "updated_at"]
-  end
-   belongs_to :admin_user
+	has_one_attached :icon
+	validates :name, presence: true, uniqueness: true
+	has_many :course_titles
 end

@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   post 'signup', to: 'accounts#create'
   post 'login', to: 'logins#login'
 
-  resources :courses, only: [:index]
+  resources :courses, only: [:index, :show]
 end
