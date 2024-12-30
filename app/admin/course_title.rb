@@ -1,12 +1,12 @@
 ActiveAdmin.register CourseTitle do
-  permit_params :title, :description, :course_id, :image
+  permit_params :title, :description, :courses_id, :image
 
   index do
     selectable_column
     id_column
     column :title
     column "Course" do |topic|
-      topic.course.name if topic.course.present?
+      topic.courses.name if topic.courses.present?
     end
     column "Image" do |topic|
       image_tag(topic.image, size: "50x50") if topic.image.attached?
@@ -16,7 +16,7 @@ ActiveAdmin.register CourseTitle do
 
   form do |f|
     f.inputs "Content Details" do
-      f.input :course_id, as: :select, collection: Courses.all.map { |c| [c.name, c.id] }, input_html: { id: "course-select" }
+      f.input :courses_id, as: :select, collection: Courses.all.map { |c| [c.name, c.id] }, input_html: { id: "course-select" }
       f.input :title
       f.input :image, as: :file
     end
@@ -27,7 +27,7 @@ ActiveAdmin.register CourseTitle do
     attributes_table do
       row :title
       row "Course" do
-        topic.course.name if topic.course.present?
+        topic.courses.name if topic.courses.present?
       end
       row "Image" do
         image_tag(topic.image, size: "100x100") if topic.image.attached?

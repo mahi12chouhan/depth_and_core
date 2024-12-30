@@ -1,4 +1,4 @@
 class CourseTitle < ApplicationRecord
-	belongs_to :course, class_name: "Courses"
+	belongs_to :courses
 	has_one_attached :image
 end
